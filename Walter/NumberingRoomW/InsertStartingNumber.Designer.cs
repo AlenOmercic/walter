@@ -86,7 +86,9 @@
 			this.Controls.Add(this.lblStartNumber);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(346, 167);
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(346, 167);
 			this.Name = "InsertStartingNumber";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
