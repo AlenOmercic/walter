@@ -57,7 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SelectCategoryW\WCommand.cs" />
+    <Compile Include="NumberingRoomW\AutoNumberingRoomCommand.cs" />
+    <Compile Include="NumberingRoomW\InsertStartingNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NumberingRoomW\InsertStartingNumber.Designer.cs">
+      <DependentUpon>InsertStartingNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumberingRoomW\NumberingRoomCommand.cs" />
+    <Compile Include="SelectCategoryW\SelectCommand.cs" />
     <Compile Include="NWalter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectCategoryW\SelectForm.cs">
@@ -68,13 +76,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="NumberingRoomW\InsertStartingNumber.resx">
+      <DependentUpon>InsertStartingNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelectCategoryW\SelectForm.resx">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="resorce\icon.ico" />
+    <Content Include="resorce\numbering.png" />
+    <Content Include="resorce\autoNumbering.png" />
     <Content Include="resorce\select.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

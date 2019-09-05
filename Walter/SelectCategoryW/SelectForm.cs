@@ -48,11 +48,6 @@ namespace Walter.SelectCategory
 			
 		}
 
-		private void btnCancel_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
 		private void btnAcceptExport_Click(object sender, EventArgs e)
 		{
 			DataGridViewSelectedRowCollection selectedRows = dgvListCategories.SelectedRows;

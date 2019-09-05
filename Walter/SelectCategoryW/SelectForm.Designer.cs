@@ -49,12 +49,12 @@
 			// btnCancel
 			// 
 			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Location = new System.Drawing.Point(265, 275);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(100, 32);
 			this.btnCancel.TabIndex = 2;
 			this.btnCancel.Values.Text = "Cancel";
-			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// lblMessage
 			// 
@@ -87,8 +87,10 @@
 			// 
 			// SelectForm
 			// 
+			this.AcceptButton = this.btnAcceptExport;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btnCancel;
 			this.ClientSize = new System.Drawing.Size(376, 325);
 			this.Controls.Add(this.dgvListCategories);
 			this.Controls.Add(this.lblMessage);
