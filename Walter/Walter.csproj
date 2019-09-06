@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>dll\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>E:\Zadatak Alen\Krypton dlls\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>resorce\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
@@ -57,6 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Furniture\FurnitureCommand.cs" />
+    <Compile Include="Furniture\ShowFurnitureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Furniture\ShowFurnitureForm.Designer.cs">
+      <DependentUpon>ShowFurnitureForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NumberingRoomW\AutoNumberingRoomCommand.cs" />
     <Compile Include="NumberingRoomW\InsertStartingNumber.cs">
       <SubType>Form</SubType>
@@ -76,6 +84,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Furniture\ShowFurnitureForm.resx">
+      <DependentUpon>ShowFurnitureForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NumberingRoomW\InsertStartingNumber.resx">
       <DependentUpon>InsertStartingNumber.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,9 +95,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="resorce\ComponentFactory.Krypton.Toolkit.dll" />
     <Content Include="resorce\icon.ico" />
     <Content Include="resorce\numbering.png" />
     <Content Include="resorce\autoNumbering.png" />
+    <Content Include="resorce\furniture.png" />
     <Content Include="resorce\select.png" />
   </ItemGroup>
   <ItemGroup />

@@ -55,7 +55,7 @@ namespace Walter.SelectCategory
 			List<Element> elementsListByCat;
 			List<Element> elementsListByCatIds = new List<Element>();
 			List<List<Element>> finalList;
-			string path = @"C:\Users\Walter - User\Desktop\Walter.txt";
+			string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Walter.txt";
 			if (File.Exists(path))
 			{
 				File.Delete(path);
