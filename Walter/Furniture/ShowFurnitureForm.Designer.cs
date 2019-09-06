@@ -29,20 +29,20 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowFurnitureForm));
-			this.kryptonTreeView1 = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
+			this.trShowFurniture = new ComponentFactory.Krypton.Toolkit.KryptonTreeView();
 			this.lblInfo = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			this.btnOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.SuspendLayout();
 			// 
-			// kryptonTreeView1
+			// trShowFurniture
 			// 
-			this.kryptonTreeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.trShowFurniture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.kryptonTreeView1.Location = new System.Drawing.Point(12, 42);
-			this.kryptonTreeView1.Name = "kryptonTreeView1";
-			this.kryptonTreeView1.Size = new System.Drawing.Size(478, 345);
-			this.kryptonTreeView1.TabIndex = 0;
+			this.trShowFurniture.Location = new System.Drawing.Point(12, 42);
+			this.trShowFurniture.Name = "trShowFurniture";
+			this.trShowFurniture.Size = new System.Drawing.Size(478, 345);
+			this.trShowFurniture.TabIndex = 0;
 			// 
 			// lblInfo
 			// 
@@ -70,7 +70,7 @@
 			this.ClientSize = new System.Drawing.Size(502, 450);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.lblInfo);
-			this.Controls.Add(this.kryptonTreeView1);
+			this.Controls.Add(this.trShowFurniture);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -85,7 +85,7 @@
 
 		#endregion
 
-		private ComponentFactory.Krypton.Toolkit.KryptonTreeView kryptonTreeView1;
+		private ComponentFactory.Krypton.Toolkit.KryptonTreeView trShowFurniture;
 		private ComponentFactory.Krypton.Toolkit.KryptonLabel lblInfo;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btnOK;
 	}

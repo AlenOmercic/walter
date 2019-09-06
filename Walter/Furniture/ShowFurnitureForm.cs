@@ -27,7 +27,17 @@ namespace Walter
 
 		private void ShowFurnitureForm_Load(object sender, EventArgs e)
 		{
-			List<Element> rooms = (new FilteredElementCollector(_uIApplication.ActiveUIDocument.Document, _uIApplication.ActiveUIDocument.ActiveView.Id).OfCategory(BuiltInCategory.OST_Furniture).WhereElementIsNotElementType() as IEnumerable<Element>).Cast<Element>().ToList();
+			List<Element> elements = (new FilteredElementCollector(_uIApplication.ActiveUIDocument.Document, _uIApplication.ActiveUIDocument.ActiveView.Id).OfCategory(BuiltInCategory.OST_Furniture).WhereElementIsNotElementType() as IEnumerable<Element>).Cast<Element>().ToList();
+			List<List<Element>> furniture = elements.GroupBy(f => f.Name).Select(gr => gr.ToList()).ToList();
+			lblInfo.Text = "Showing furnture for " + _uIApplication.ActiveUIDocument.ActiveView.Name + " Total (" + elements.Capacity.ToString() + ')';
+			for (int i = 0; i < furniture.Count; i++)
+			{
+				trShowFurniture.Nodes.Add(furniture[i][0].Name);
+				for (int j = 0; j < furniture[i].Count; j++)
+				{
+					trShowFurniture.Nodes[i].Nodes.Add(furniture[i][j].Name + '(' + furniture[i][j].Id.ToString() + ')');
+				}
+			}
 		}
 	}
 }
