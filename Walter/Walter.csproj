@@ -58,6 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditElement\EditElementCommand.cs" />
+    <Compile Include="EditElement\EditElementProperties.cs" />
+    <Compile Include="EditElement\EditPropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditElement\EditPropertyForm.Designer.cs">
+      <DependentUpon>EditPropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditElement\ShowElementPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditElement\ShowElementPropertiesForm.Designer.cs">
+      <DependentUpon>ShowElementPropertiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Furniture\FurnitureCommand.cs" />
     <Compile Include="Furniture\ShowFurnitureForm.cs">
       <SubType>Form</SubType>
@@ -84,6 +98,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EditElement\EditPropertyForm.resx">
+      <DependentUpon>EditPropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditElement\ShowElementPropertiesForm.resx">
+      <DependentUpon>ShowElementPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Furniture\ShowFurnitureForm.resx">
       <DependentUpon>ShowFurnitureForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +120,7 @@
     <Content Include="resorce\numbering.png" />
     <Content Include="resorce\autoNumbering.png" />
     <Content Include="resorce\furniture.png" />
+    <Content Include="resorce\edit.png" />
     <Content Include="resorce\select.png" />
   </ItemGroup>
   <ItemGroup />

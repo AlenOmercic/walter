@@ -10,16 +10,18 @@ namespace Walter
 {
 	[Autodesk.Revit.Attributes.Regeneration(Autodesk.Revit.Attributes.RegenerationOption.Manual)]
 	[Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-	class FurnitureCommand : IExternalCommand
+	public class FurnitureCommand : IExternalCommand
 	{
 		public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
 		{
-			using (Transaction transaction = new Transaction(commandData.Application.ActiveUIDocument.Document))
+			using (Transaction transaction = new Transaction(commandData.Application.ActiveUIDocument.Document, "FurnitureCommand"))
 			{
 				try
 				{
+					transaction.Start();
 					ShowFurnitureForm frmFurniture= new ShowFurnitureForm(commandData.Application);
 					frmFurniture.ShowDialog();
+					transaction.Commit();
 				}
 				catch (Exception)
 				{

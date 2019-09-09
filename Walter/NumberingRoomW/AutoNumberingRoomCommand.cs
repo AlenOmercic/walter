@@ -11,7 +11,7 @@ namespace Walter
 {
 	[Autodesk.Revit.Attributes.Regeneration(Autodesk.Revit.Attributes.RegenerationOption.Manual)]
 	[Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-	class AutoNumberingRoomCommand : IExternalCommand
+	public class AutoNumberingRoomCommand : IExternalCommand
 	{
 		public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
 		{
