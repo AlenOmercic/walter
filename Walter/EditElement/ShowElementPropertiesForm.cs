@@ -15,41 +15,56 @@ namespace Walter
 	public partial class ShowElementPropertiesForm : System.Windows.Forms.Form
 	{
 		private Element _element { get; set; }
+		private ElementType _family { get; set; }
 		private List<EditElementProperties> _editElementProperties { get; set; }
+		private List<EditElementProperties> _editFamilyProperties { get; set; }
+		private Document _document { get; set; }
 		public ShowElementPropertiesForm()
 		{
 			InitializeComponent();
 		}
-		public ShowElementPropertiesForm(Element element, List<EditElementProperties> editElementProperties)
+		public ShowElementPropertiesForm(Document document, Element element, ElementType family, List<EditElementProperties> editElementProperties, List<EditElementProperties> editFamilyProperties)
 		{
+			_document = document;
 			_element = element;
+			_family = family;
 			_editElementProperties = editElementProperties;
+			_editFamilyProperties = editFamilyProperties;
 			InitializeComponent();
 		}
 
 		private void ShowElementProperties_Load(object sender, EventArgs e)
 		{
 			dgvShowProperties.DataSource = _editElementProperties;
+			dgvFamilyProp.DataSource = _editFamilyProperties;
 		}
 
 		private void dgvShowProperties_Click(object sender, EventArgs e)
 		{
-			bool canEdit = bool.Parse(dgvShowProperties.SelectedRows[0].Cells["CanEdit"].Value.ToString());
+			ShowFormDialog(bool.Parse(dgvShowProperties.SelectedRows[0].Cells["CanEdit"].Value.ToString()), PropertyType.ElementProperty, dgvShowProperties);
+		}
+
+		private void dgvFamilyProp_Click(object sender, EventArgs e)
+		{
+			ShowFormDialog(bool.Parse(dgvFamilyProp.SelectedRows[0].Cells["CanEdit"].Value.ToString()), PropertyType.FamilyProperty, dgvFamilyProp);
+		}
+
+		private void ShowFormDialog(bool canEdit, PropertyType propertyType, ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridView)
+		{
 			if (canEdit)
 			{
 				EditElementProperties editElementProperties = new EditElementProperties();
-				editElementProperties.Name = dgvShowProperties.SelectedRows[0].Cells["Name"].Value.ToString();
-				editElementProperties.Value = (dgvShowProperties.SelectedRows[0].Cells["Value"].Value == null) ? "" : dgvShowProperties.SelectedRows[0].Cells["Value"].Value.ToString();
+				editElementProperties.Name = kryptonDataGridView.SelectedRows[0].Cells["Name"].Value.ToString();
+				editElementProperties.Value = (kryptonDataGridView.SelectedRows[0].Cells["Value"].Value == null) ? "" : kryptonDataGridView.SelectedRows[0].Cells["Value"].Value.ToString();
 				editElementProperties.CanEdit = canEdit;
-				EditPropertyForm frmEditProp = new EditPropertyForm(editElementProperties, _element);
+				EditPropertyForm frmEditProp = new EditPropertyForm(_document, editElementProperties, _element, _family, propertyType);
 				frmEditProp.ShowDialog();
-				dgvShowProperties.SelectedRows[0].Cells["Value"].Value = frmEditProp.ReturnValue1;
+				kryptonDataGridView.SelectedRows[0].Cells["Value"].Value = frmEditProp.ReturnValue1;
 			}
 			else
 			{
 				TaskDialog.Show("Warning", "You can not edit this property!");
 			}
-			
 		}
 	}
 }
