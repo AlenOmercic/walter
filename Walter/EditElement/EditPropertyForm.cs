@@ -67,7 +67,7 @@ namespace Walter
 					}
 					break;
 				default:
-					break;
+					throw new Exception();
 			}
 			this.ReturnValue1 = _editElementProperties.Value;
 			this.Close();
