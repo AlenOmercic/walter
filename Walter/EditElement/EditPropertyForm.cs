@@ -48,11 +48,14 @@ namespace Walter
 					List<Element> elementsInDoc = new FilteredElementCollector(_document).OfCategoryId(_element.Category.Id).ToElements().ToList();
 					foreach (var el in elementsInDoc)
 					{
-						foreach (Parameter item in el.Parameters)
+						if (el.Name == _element.Name)
 						{
-							if (item.Definition.Name == _editElementProperties.Name)
+							foreach (Parameter item in el.Parameters)
 							{
-								item.Set(txtValue.Text);
+								if (item.Definition.Name == _editElementProperties.Name)
+								{
+									item.Set(txtValue.Text);
+								}
 							}
 						}
 					}
@@ -71,12 +74,6 @@ namespace Walter
 			}
 			this.ReturnValue1 = _editElementProperties.Value;
 			this.Close();
-		}
-
-		void SetParametarValue(ElementId id)
-		{
-
-			
 		}
 	}
 }
