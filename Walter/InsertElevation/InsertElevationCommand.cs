@@ -40,8 +40,6 @@ namespace Walter
 							{
 								
 								IList<IList<BoundarySegment>> roomSegments = selectedRoom.GetBoundarySegments(new SpatialElementBoundaryOptions { SpatialElementBoundaryLocation = SpatialElementBoundaryLocation.Finish });
-								List<Wall> walls = new List<Wall>();
-								List<ElementId> idss = new List<ElementId>();
 								Curve curveRight = null;
 								Curve curveLeft = null;
 								Curve curveUp = null;
@@ -99,17 +97,8 @@ namespace Walter
 												curveRight = segment.GetCurve();
 											}
 										}
-										if (wall != null)
-										{
-											LocationCurve locationCurve = wall.Location as LocationCurve;
-											walls.Add(wall);
-											
-										}
-
-										idss.Add(wall.Id);
 									}
 								}
-								commandData.Application.ActiveUIDocument.Selection.SetElementIds(idss);
 
 								IEnumerable<ViewFamilyType> viewFamilyTypes = from elem in new FilteredElementCollector(commandData.Application.ActiveUIDocument.Document).OfClass(typeof(ViewFamilyType))
 																			  let type = elem as ViewFamilyType
