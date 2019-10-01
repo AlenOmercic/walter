@@ -70,7 +70,9 @@ namespace Walter
 			PushButton edit = CreatePushButton(ribbonPanel, "Edit Element", "Edit\nElement", _path, "Walter.EditElementCommand", "Alat omogućuje korisniku da za selektovani element budu prikazani svi parametri izabranog elementa. Korisnik ima mogućnost da unese novu vrijednost parametra i klikom na dugme „Ok“ svi elementi tog tipa koji se nalaze unutar projekta dobiće novu unesenu vrijednost", true, _resorce + @"edit.png");
 			edit.Enabled = false;
 			ribbonPanel.AddSeparator();
-			CreatePushButton(ribbonPanel, "Insert Section", "Insert\nSection", _path, "Walter.InsertSectionCommand", "Alat omogucuje korisniku za selektovani element da se kreira section", true, _resorce + @"section.png");
+			CreatePushButton(ribbonPanel, "Insert Section", "Insert\nSection", _path, "Walter.InsertSectionCommand", "Alat omogucuje korisniku za selektovana vrata da se kreira section", true, _resorce + @"section.png");
+			ribbonPanel.AddSeparator();
+			CreatePushButton(ribbonPanel, "Insert Elevation", "Insert\nElevation", _path, "Walter.InsertElevationCommand", "Alat omogucuje korisniku za selektovanu sobu da se kreira elevation za svaku stranu", true, _resorce + @"elevation.png");
 			ribbonPanel.AddSeparator();
 		}
 
