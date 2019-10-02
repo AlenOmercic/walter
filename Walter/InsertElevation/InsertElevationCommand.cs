@@ -38,7 +38,6 @@ namespace Walter
 							}
 							else
 							{
-								
 								IList<IList<BoundarySegment>> roomSegments = selectedRoom.GetBoundarySegments(new SpatialElementBoundaryOptions { SpatialElementBoundaryLocation = SpatialElementBoundaryLocation.Finish });
 								Curve curveRight = null;
 								Curve curveLeft = null;
